@@ -18,6 +18,7 @@ import VideoSourceInput from "./components/session-control/video-source.tsx";
 import {forwardRef, useEffect, useRef, useState} from "react";
 import SessionTimer from "./components/session-timer/timer.tsx";
 import SessionStatus from "./components/session-timer/status.tsx";
+import SessionSubtitle from "./components/session-timer/subtitle.tsx";
 
 const DrawerContainer = forwardRef<HTMLDivElement, StackProps>(
     function DrawerContainer(props, ref) {
@@ -123,6 +124,7 @@ function App() {
                                 <Stack height="100%" width="100%" gap={4} alignItems="center">
                                     <SessionStatus/>
                                     <SessionTimer/>
+                                    <SessionSubtitle/>
                                 </Stack>
                             </Drawer.Body>
                             <Drawer.Footer>
