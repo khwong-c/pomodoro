@@ -10,7 +10,6 @@ import {
     Drawer,
     Flex,
     Heading, Portal, Presence,
-    Text,
     Stack, type StackProps,
 } from "@chakra-ui/react";
 import ReactPlayer from "react-player";
@@ -18,6 +17,7 @@ import SessionPanel from "./components/session-control/panel.tsx";
 import VideoSourceInput from "./components/session-control/video-source.tsx";
 import {forwardRef, useEffect, useRef, useState} from "react";
 import SessionTimer from "./components/session-timer/timer.tsx";
+import SessionStatus from "./components/session-timer/status.tsx";
 
 const DrawerContainer = forwardRef<HTMLDivElement, StackProps>(
     function DrawerContainer(props, ref) {
@@ -121,12 +121,7 @@ function App() {
                             </Drawer.Header>
                             <Drawer.Body>
                                 <Stack height="100%" width="100%" gap={4} alignItems="center">
-                                    <Box bg={"blue.800"} p={4} borderRadius="md" mb={4} width="100%">
-                                        <Text>
-                                            {/* Content goes here */}
-                                            DrawerContainer
-                                        </Text>
-                                    </Box>
+                                    <SessionStatus/>
                                     <SessionTimer/>
                                 </Stack>
                             </Drawer.Body>
