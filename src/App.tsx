@@ -17,6 +17,7 @@ import ReactPlayer from "react-player";
 import SessionPanel from "./components/session-control/panel.tsx";
 import VideoSourceInput from "./components/session-control/video-source.tsx";
 import {forwardRef, useEffect, useRef, useState} from "react";
+import SessionTimer from "./components/session-timer/timer.tsx";
 
 const DrawerContainer = forwardRef<HTMLDivElement, StackProps>(
     function DrawerContainer(props, ref) {
@@ -108,6 +109,7 @@ function App() {
                         </Flex>
                     </Stack>
                 </DrawerContainer>
+
                 <Portal container={portalRef}>
                     <Drawer.Backdrop pos="absolute" boxSize="full"/>
                     <Drawer.Positioner pos="absolute" boxSize="full">
@@ -124,14 +126,8 @@ function App() {
                                             {/* Content goes here */}
                                             DrawerContainer
                                         </Text>
-
                                     </Box>
-                                    <Box bg={"blue.800"} p={4} borderRadius="md" mb={4} width="100%">
-                                        <Text>
-                                            {/* Content goes here */}
-                                            DrawerContainer
-                                        </Text>
-                                    </Box>
+                                    <SessionTimer/>
                                 </Stack>
                             </Drawer.Body>
                             <Drawer.Footer>

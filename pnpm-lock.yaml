@@ -14,6 +14,9 @@ importers:
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.1.9)(react@19.1.1)
+      '@leenguyen/react-flip-clock-countdown':
+        specifier: ^1.7.1
+        version: 1.7.1(react@19.1.1)
       '@react-spring/web':
         specifier: ^10.0.1
         version: 10.0.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -486,6 +489,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.29':
     resolution: {integrity: sha512-uw6guiW/gcAGPDhLmd77/6lW8QLeiV5RUTsAX46Db6oLhGaVj4lhnPwb184s1bkc8kdVg/+h988dro8GRDpmYQ==}
+
+  '@leenguyen/react-flip-clock-countdown@1.7.1':
+    resolution: {integrity: sha512-hCUYZ/lshBntf+EscYoDu6BDwLBjHYyACkPnZa7T7sDLx6KEZVCZzdKicHw8YfKPpP/j9+Rfq5WdfgxLXk1cbw==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>= 16.13.0'
 
   '@mux/mux-data-google-ima@0.2.8':
     resolution: {integrity: sha512-0ZEkHdcZ6bS8QtcjFcoJeZxJTpX7qRIledf4q1trMWPznugvtajCjCM2kieK/pzkZj1JM6liDRFs1PJSfVUs2A==}
@@ -1111,6 +1120,10 @@ packages:
 
   cloudflare-video-element@1.3.3:
     resolution: {integrity: sha512-qrHzwLmUhisoIuEoKc7iBbdzBNj2Pi7ThHslU/9U/6PY9DEvo4mh/U+w7OVuzXT9ks7ZXfARvDBfPAaMGF/hIg==}
+
+  clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
 
   codem-isoboxer@0.3.10:
     resolution: {integrity: sha512-eNk3TRV+xQMJ1PEj0FQGY8KD4m0GPxT487XJ+Iftm7mVa9WpPFDMWqPt+46buiP5j5Wzqe5oMIhqBcAeKfygSA==}
@@ -2515,6 +2528,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.4
 
+  '@leenguyen/react-flip-clock-countdown@1.7.1(react@19.1.1)':
+    dependencies:
+      clsx: 1.2.1
+      react: 19.1.1
+
   '@mux/mux-data-google-ima@0.2.8':
     dependencies:
       mux-embed: 5.9.0
@@ -3447,6 +3465,8 @@ snapshots:
       colors: 1.0.3
 
   cloudflare-video-element@1.3.3: {}
+
+  clsx@1.2.1: {}
 
   codem-isoboxer@0.3.10: {}
 
