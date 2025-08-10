@@ -1,12 +1,11 @@
 "use client"
 
-import type {CollectionItem} from "@chakra-ui/react"
+import type {CollectionItem, ListCollection} from "@chakra-ui/react"
 import {Select as ChakraSelect, Portal} from "@chakra-ui/react"
 import {CloseButton} from "./close-button"
 import * as React from "react"
 
 import {Field} from "./field.tsx";
-import {type ListCollection} from "@zag-js";
 
 interface SelectTriggerProps extends ChakraSelect.ControlProps {
     clearable?: boolean
