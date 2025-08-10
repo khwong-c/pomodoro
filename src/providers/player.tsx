@@ -1,38 +1,14 @@
-import {useContext, createContext, useReducer} from "react";
+import { useReducer} from "react";
 import * as React from "react";
 
-interface PlayerEvents {
-    onPlayerReady: () => void;
-    onPlayerStarted: () => void;
-    onPlayerPaused: () => void;
-}
-
-interface PlayerState {
-    eventCallbacks: PlayerEvents;
-}
-
-interface PlayerReduceCommand {
-    type: string
-}
-
-const workContext = createContext<{
-    state: PlayerState,
-    dispatch: React.Dispatch<PlayerReduceCommand>
-} | null>(null);
-
-const restContext = createContext<{
-    state: PlayerState,
-    dispatch: React.Dispatch<PlayerReduceCommand>
-} | null>(null);
+import {
+    WorkPlayerContext,
+    RestPlayerContext,
+    type PlayerState,
+    type PlayerReduceCommand
+} from "./models/player.ts";
 
 
-export function usePlayerWorkState() {
-    return useContext(workContext);
-}
-
-export function usePlayerRestState() {
-    return useContext(restContext);
-}
 
 export function PlayerProvider(props: {
     children: React.ReactNode,
@@ -45,11 +21,11 @@ export function PlayerProvider(props: {
     const [workState, workDispatch] = useReducer(workReducer, workInitialState as PlayerState);
     const [restState, restDispatch] = useReducer(restReducer, restInitialState as PlayerState);
     return (
-        <workContext.Provider value={{state: workState, dispatch: workDispatch}}>
-            <restContext.Provider value={{state: restState, dispatch: restDispatch}}>
+        <WorkPlayerContext.Provider value={{state: workState, dispatch: workDispatch}}>
+            <RestPlayerContext.Provider value={{state: restState, dispatch: restDispatch}}>
                 {children}
-            </restContext.Provider>
-        </workContext.Provider>
+            </RestPlayerContext.Provider>
+        </WorkPlayerContext.Provider>
     );
 }
 
