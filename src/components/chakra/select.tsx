@@ -153,11 +153,11 @@ export const SingleSelector = (
             value: string,
             label: string,
         }>,
-        selected: string,
+        value: string,
         onChange: (value: string) => void,
     }
 ) => {
-    const {label, helperText, collection, selected, onChange} = props;
+    const {label, helperText, collection, value, onChange} = props;
     return (
         <Field
             label={label}
@@ -165,7 +165,7 @@ export const SingleSelector = (
         >
             <SelectRoot
                 collection={collection}
-                value={[selected ?? ""]}
+                value={[value ?? ""]}
                 onValueChange={({value}) => {
                     if(value.length == 0) {
                         onChange("");
