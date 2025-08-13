@@ -93,7 +93,7 @@ function App() {
                                 <Box blur={state1.playing ? "md" : "none"} filter={"auto"} width="100%" height="100%">
                                     <ReactPlayer
                                         style={{width: '100%', height: 'auto', aspectRatio: '16/9'}}
-                                        onStart={() => setState1(prev => ({...prev, playing: true}))}
+                                        // onStart={() => setState1(prev => ({...prev, playing: true}))}
                                         onPause={() => setState1(prev => ({...prev, playing: false}))}
                                         onPlay={() => setState1(prev => ({...prev, playing: true}))}
                                         {...state1}

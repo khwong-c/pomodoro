@@ -93,7 +93,7 @@ const SessionPanel = () => {
                     <SessionSummary/>
                 </Fieldset.Content>
             </Fieldset.Root>
-            <Drawer.Trigger>
+            <Drawer.Trigger asChild>
                 <Button>Start Session</Button>
             </Drawer.Trigger>
         </Container>
