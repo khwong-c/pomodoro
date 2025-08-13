@@ -76,7 +76,7 @@ function App() {
     const portalRef = useRef<HTMLDivElement | null>(null)
     return (
         <Container minH="30rem" maxH="1400px" width="80vw" minW="80rem">
-            <Drawer.Root placement={"top"} size={"full"}>
+            <Drawer.Root placement={"top"} size={"full"} closeOnEscape={false} closeOnInteractOutside={false}>
                 <DrawerContainer ref={portalRef}>
                     <Stack bg="green.900" gap={2} alignItems="center" p={2} width="100%" height="100%">
                         <Box bg="gray.800" p={4}>
