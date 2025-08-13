@@ -5,7 +5,6 @@
 import './App.css'
 import {
     Box,
-    Button, CloseButton,
     Container,
     Drawer,
     Flex,
@@ -16,9 +15,7 @@ import ReactPlayer from "react-player";
 import SessionPanel from "./components/session-control/panel.tsx";
 import VideoSourceInput from "./components/session-control/video-source.tsx";
 import {forwardRef, useEffect, useRef, useState} from "react";
-import SessionTimer from "./components/session-timer/timer.tsx";
-import SessionStatus from "./components/session-timer/status.tsx";
-import SessionSubtitle from "./components/session-timer/subtitle.tsx";
+import SessionDrawer from "./components/timer/session-drawer.tsx";
 
 const DrawerContainer = forwardRef<HTMLDivElement, StackProps>(
     function DrawerContainer(props, ref) {
@@ -114,27 +111,7 @@ function App() {
                 <Portal container={portalRef}>
                     <Drawer.Backdrop pos="absolute" boxSize="full"/>
                     <Drawer.Positioner pos="absolute" boxSize="full">
-                        <Drawer.Content bg="gray.900" borderRadius="md" boxShadow="lg" height="100%">
-                            <Drawer.Header>
-                                <Drawer.Title>
-                                    Pomodoro Timer
-                                </Drawer.Title>
-                            </Drawer.Header>
-                            <Drawer.Body>
-                                <Stack height="100%" width="100%" gap={4} alignItems="center">
-                                    <SessionStatus/>
-                                    <SessionTimer/>
-                                    <SessionSubtitle/>
-                                </Stack>
-                            </Drawer.Body>
-                            <Drawer.Footer>
-                                <Button variant="outline">Cancel</Button>
-                                <Button>Save</Button>
-                            </Drawer.Footer>
-                            <Drawer.CloseTrigger asChild>
-                                <CloseButton colorScheme="red" variant="solid"></CloseButton>
-                            </Drawer.CloseTrigger>
-                        </Drawer.Content>
+                        <SessionDrawer/>
                     </Drawer.Positioner>
                 </Portal>
             </Drawer.Root>
