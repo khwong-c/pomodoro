@@ -4,6 +4,9 @@ import {
     Drawer,
     Fieldset,
     Stack,
+    Grid, GridItem,
+    Separator,
+    Text,
 } from "@chakra-ui/react";
 import * as React from "react";
 
@@ -15,6 +18,7 @@ import {
 import {
     DispatchPresetSession,
     type DispatchPresetSessionEnum,
+    SessionType,
 } from "../../providers/models/session.ts";
 
 const presetChoices = createListCollection({
@@ -42,6 +46,28 @@ const PresetSessionSelect = (
     )
 }
 
+const SessionSummary = () => {
+    const {state} = useSessionState();
+    return (
+        <Stack>
+            <Separator/>
+            <Text>SessionSummary</Text>
+            <Separator/>
+            <Grid templateColumns="repeat(3, 1fr)" gap="2">
+                <GridItem colSpan={2}><Text textStyle={"sm"}>Total Time:</Text></GridItem>
+                <GridItem colSpan={1}><Text textStyle={"sm"}>{
+                    (state.sessionProgram
+                        .reduce((total, s) => total + s.length, 0) / 3600)
+                        .toFixed(1) + " Hour"
+                }</Text></GridItem>
+                <GridItem colSpan={2}><Text textStyle={"sm"}>Working Sessions:</Text></GridItem>
+                <GridItem colSpan={1}><Text textStyle={"sm"}>{
+                    state.sessionProgram.filter((s) => s.type == SessionType.Work).length
+                }</Text></GridItem>
+            </Grid>
+        </Stack>
+    )
+}
 
 const SessionPanel = () => {
     const {state, dispatch} = useSessionState();
@@ -64,6 +90,7 @@ const SessionPanel = () => {
                             })
                         }}
                     />
+                    <SessionSummary/>
                 </Fieldset.Content>
             </Fieldset.Root>
             <Drawer.Trigger>
