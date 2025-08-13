@@ -1,19 +1,16 @@
 import {useReducer} from "react";
 import * as React from "react";
-import {
-    SessionContext,
-    type SessionState,
-    type SessionReduceCommand
-} from "./models/session.ts";
 
+import type {SessionState} from "./models/session.ts";
+import {sessionReducer} from "./reducers/session.ts";
+import {SessionContext} from "./session-hooks.ts";
 
 export function SessionProvider(props: {
     children: React.ReactNode,
-    reducer: (prev: SessionState, action: SessionReduceCommand) => SessionState,
     initialState?: SessionState
 }) {
-    const {children, reducer, initialState} = props;
-    const [state, dispatch] = useReducer(reducer, initialState as SessionState);
+    const {children, initialState} = props;
+    const [state, dispatch] = useReducer(sessionReducer, initialState as SessionState);
     return (
         <SessionContext.Provider value={{state, dispatch}}>
             {children}

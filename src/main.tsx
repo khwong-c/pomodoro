@@ -4,13 +4,32 @@ import './index.css'
 import App from './App.tsx'
 import {Provider} from './components/chakra/provider'
 import {DarkMode} from "./components/chakra/color-mode.tsx";
+import {SessionProvider} from "./providers/session.tsx";
+import type {SessionTypeEnum} from "./providers/models/session.ts";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <Provider>
-            <DarkMode>
+        <Provider> <DarkMode>
+            <SessionProvider initialState={{
+                presetSession: null,
+                sessionProgram: [],
+                currentSession: 0,
+                eventCallbacks: {
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    onSessionStart: (curSession: number) => {
+                    },
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    onSessionEnd: (curSession: number) => {
+                    },
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    onSessionChange: (curSession: number, sessionType: SessionTypeEnum) => {
+                    },
+                    onSessionAllSessionDone: () => {
+                    },
+                }
+            }}>
                 <App/>
-            </DarkMode>
-        </Provider>
+            </SessionProvider>
+        </DarkMode> </Provider>
     </StrictMode>,
 )
