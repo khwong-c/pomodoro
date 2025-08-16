@@ -51,7 +51,7 @@ const SessionSummary = () => {
     return (
         <Stack>
             <Separator/>
-            <Text>SessionSummary</Text>
+            <Text>Session Summary</Text>
             <Separator/>
             <Grid templateColumns="repeat(3, 1fr)" gap="2">
                 <GridItem colSpan={2}><Text textStyle={"sm"}>Total Time:</Text></GridItem>
