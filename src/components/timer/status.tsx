@@ -1,6 +1,11 @@
 import {Box, Flex, Heading} from "@chakra-ui/react";
+import {useSessionState} from "../../providers/session-hooks.ts";
+import {SessionType} from "../../providers/models/session.ts";
 
 const SessionStatus = () => {
+    const {state} = useSessionState()
+    const currentSession = state.sessionProgram[state.currentSession];
+    const sessionTypeText = `${currentSession.type === SessionType.Work ? "Work" : "Rest"} Session`;
     return (
         <Flex width={"100%"} gap={4}>
             <Box
@@ -8,9 +13,7 @@ const SessionStatus = () => {
                 mb={4} flex={3}
                 alignContent={"center"}
             >
-                <Heading>
-                    Working Session
-                </Heading>
+                <Heading>{sessionTypeText}</Heading>
             </Box>
             <Box
                 bg={"blue.800"} p={4} borderRadius="md"
@@ -18,7 +21,7 @@ const SessionStatus = () => {
                 alignContent={"center"}
             >
                 <Heading>
-                    Session: No. 1
+                    Session: No. {state.currentSession + 1}
                 </Heading>
             </Box>
         </Flex>
