@@ -87,14 +87,23 @@ const SessionPanel = () => {
                             dispatch({
                                 type: SessionDispatchCommand.ChangeSessionPreset,
                                 payload: {preset: value},
-                            })
+                            });
                         }}
                     />
                     <SessionSummary/>
                 </Fieldset.Content>
             </Fieldset.Root>
             <Drawer.Trigger asChild>
-                <Button>Start Session</Button>
+                <Button onClick={() => {
+                    dispatch({
+                        type: SessionDispatchCommand.BeginSessions,
+                        payload: {
+                            currentTime: new Date().getTime(),
+                        },
+                    });
+                    state.eventCallbacks.onSessionChange(0, state.sessionProgram[0].type);
+                }}> Start Session
+                </Button>
             </Drawer.Trigger>
         </Container>
 

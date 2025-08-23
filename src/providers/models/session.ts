@@ -32,8 +32,6 @@ export const dispatchPresetSession = (preset: DispatchPresetSessionEnum): Sessio
 }
 
 export interface SessionEvents {
-    onSessionStart: (curSession: number) => void;
-    onSessionEnd: (curSession: number) => void;
     onSessionChange: (curSession: number, sessionType: SessionTypeEnum) => void;
     onSessionAllSessionDone: () => void;
 }
@@ -41,6 +39,7 @@ export interface SessionEvents {
 export interface SessionState {
     presetSession: DispatchPresetSessionEnum | null;
     sessionProgram: Session[];
+    sessionDeadlines: number[];
     currentSession: number;
     eventCallbacks: SessionEvents;
 }

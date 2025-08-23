@@ -13,14 +13,9 @@ createRoot(document.getElementById('root')!).render(
             <SessionProvider initialState={{
                 presetSession: null,
                 sessionProgram: [],
+                sessionDeadlines: [],
                 currentSession: 0,
                 eventCallbacks: {
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                    onSessionStart: (curSession: number) => {
-                    },
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                    onSessionEnd: (curSession: number) => {
-                    },
                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     onSessionChange: (curSession: number, sessionType: SessionTypeEnum) => {
                     },
